@@ -23,3 +23,13 @@ function fethData(urlApi,callback){//url y callback (retorna elementos, data o e
     } //cuando el estado cambie, se ejecuta la función
     xhttp.send(); //enviar la petición, ejecute todo el flujo de la conexion  
 } 
+
+
+//llamado de la función, consultas a la api por fetch 
+fethData(`{$API}/products`, function (error1, data1) {
+    if (error1) {return console.error(error1)}; //si hay error, muestra el error
+
+    fethData(`{$API}/products/${data1[0].id}`, function (error2, data2) {
+        if (error2) {return console.error(error2)}; 
+    }) //llamado a la función para obtener el producto 1 por su posición en el array
+}) //llamado a la función, con la url de la api y el callback`)
