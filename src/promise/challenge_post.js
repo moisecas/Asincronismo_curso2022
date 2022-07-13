@@ -17,3 +17,14 @@ function postData(urlApi, data) {
     return response; //retorno de la peticion
         
 }
+
+const data=
+{"title":"212","price":212,"description":"A description","categoryId":1,
+"images":["https://placeimg.com/640/480/any"]
+}
+
+postData(`${API}/products`, data) //llamado a la peticion para crear un producto nuevo en la api 
+    .then(response => response.json()) //para no usar return, se usa then
+    .then(data => {
+        console.log(data); //muestra el objeto que se creo en la api
+    })
